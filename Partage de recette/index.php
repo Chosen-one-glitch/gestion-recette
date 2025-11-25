@@ -50,7 +50,29 @@ switch ($page) {
         $controller = new RecetteControllers();
         $controller->show($_GET['id']);
         break;
+    
+    case 'rateRecipe':
+        if(!empty($_SESSION['user'])){
+            $user_id = $_SESSION['user']['id'];
+            $recipe_id = $_POST['recipe_id'];
+            $rating = $_POST['rating'];
+            $comment = $_POST['comment'] ?? '';
+            Recette::rateRecipe($user_id, $recipe_id, $rating, $comment);
+        }
+        header("Location: index.php?page=recipe&id=".$_POST['recipe_id']);
+        exit;
+        break;
 
+
+        case 'toggleFavorite':
+        if(!empty($_SESSION['user'])){
+            $user_id = $_SESSION['user']['id'];
+            $recipe_id = $_POST['recipe_id'];
+            Recette::toggleFavorite($user_id, $recipe_id);
+        }
+        header("Location: index.php?page=recipe&id=".$_POST['recipe_id']);
+        exit;
+        break;
 
     
 }
