@@ -1,36 +1,93 @@
 <?php
-
 require_once 'config.php';
 
 class Recette {
+    private $db;
 
+    public function __construct() {
+        $this->db = Database::connect();
+    }
+
+    // Récupérer toutes les recettes
     public static function getAll() {
-        $db = Database::connect(); // 🔥 Connexion correcte
-
+        $db = Database::connect();
         $sql = "SELECT r.*, c.name AS category_name, u.username AS author
                 FROM recipes r
                 LEFT JOIN categories c ON r.category_id = c.id
                 LEFT JOIN users u ON r.user_id = u.id
                 ORDER BY r.created_at DESC";
-
         $stmt = $db->prepare($sql);
         $stmt->execute();
-
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function getById($id) {
-        $db = Database::connect(); // 🔥 Idem ici
-
-        $sql = "SELECT r.*, c.name AS category_name, u.username AS author
-                FROM recipes r
-                LEFT JOIN categories c ON r.category_id = c.id
-                LEFT JOIN users u ON r.user_id = u.id
-                WHERE r.id = ?";
-
-        $stmt = $db->prepare($sql);
-        $stmt->execute([$id]);
-
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+    // Créer une nouvelle recette
+    public function create($title, $description, $category_id, $image_url, $prep_time, $cook_time, $portions, $user_id) {
+        $sql = "INSERT INTO recipes (user_id, category_id, title, description, image_url, prep_time, cook_time, portions)
+                VALUES (:user_id, :category_id, :title, :description, :image_url, :prep_time, :cook_time, :portions)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            ':user_id' => $user_id,
+            ':category_id' => $category_id,
+            ':title' => $title,
+            ':description' => $description,
+            ':image_url' => $image_url,
+            ':prep_time' => $prep_time,
+            ':cook_time' => $cook_time,
+            ':portions' => $portions
+        ]);
+        return $this->db->lastInsertId();
     }
+
+    // Ajouter un ingrédient
+    public function addIngredient($recipe_id, $name, $quantity) {
+        $sql = "INSERT INTO ingredients (recipe_id, name, quantity) VALUES (:recipe_id, :name, :quantity)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            ':recipe_id' => $recipe_id,
+            ':name' => $name,
+            ':quantity' => $quantity
+        ]);
+    }
+
+    // Ajouter une étape
+    public function addStep($recipe_id, $step_number, $description) {
+        $sql = "INSERT INTO steps (recipe_id, step_number, description) VALUES (:recipe_id, :step_number, :description)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            ':recipe_id' => $recipe_id,
+            ':step_number' => $step_number,
+            ':description' => $description
+        ]);
+    }
+
+    public static function getById($id) {
+    $db = Database::connect();
+
+    $sql = "SELECT r.*, c.name AS category_name, u.username AS author
+            FROM recipes r
+            LEFT JOIN categories c ON r.category_id = c.id
+            LEFT JOIN users u ON r.user_id = u.id
+            WHERE r.id = ?";
+
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$id]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+    public static function getIngredients($recipe_id) {
+        $db = Database::connect();
+        $stmt = $db->prepare("SELECT * FROM ingredients WHERE recipe_id = ?");
+        $stmt->execute([$recipe_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function getSteps($recipe_id) {
+        $db = Database::connect();
+        $stmt = $db->prepare("SELECT * FROM steps WHERE recipe_id = ? ORDER BY step_number ASC");
+        $stmt->execute([$recipe_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
 }

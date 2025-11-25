@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>Liste des Recettes</title>
 
-    <style>
+    <link rel="stylesheet" href="Assets/accueil.css">
+
+
+    <!-- <style>
         body { font-family: Arial, sans-serif; background: #fafafa; padding: 20px; }
         .container { display: flex; flex-wrap: wrap; gap: 20px; }
         .card {
@@ -17,7 +20,7 @@
         .title { font-size: 18px; font-weight: bold; margin-bottom: 5px; }
         .meta { font-size: 14px; color: #555; margin-bottom: 10px; }
         .desc { font-size: 14px; line-height: 1.4; }
-    </style>
+    </style> -->
 </head>
 
 <body>
@@ -26,6 +29,7 @@
             👤 Bonjour **<?= htmlspecialchars($_SESSION['user']['username']) ?>**
             (<?= htmlspecialchars($_SESSION['user']['email']) ?>)  
             — <a href="logout.php">Déconnexion</a>
+            — <a href="index.php?page=addRecipe" class="btn">Ajouter une recette</a>
         <?php else: ?>
             <a href="index.php?page=register">Inscription</a>
             <a href="index.php?page=login">Connexion</a>
@@ -35,7 +39,7 @@
     <h1>Toutes les Recettes</h1>
     <div class="container">
         <?php foreach ($recettes as $r): ?>
-            <div class="card">
+            <a href="index.php?page=recette&id=<?= $r['id'] ?>" class="card" style="text-decoration:none;color:inherit;">
                 <img src="<?= htmlspecialchars($r['image_url']) ?>" alt="Image recette">
 
                 <div class="card-body">
@@ -53,8 +57,9 @@
                         <?= nl2br(htmlspecialchars(substr($r['description'], 0, 120))) ?>...
                     </div>
                 </div>
-            </div>
+            </a>
         <?php endforeach; ?>
+
     </div>
 </body>
 </html>
