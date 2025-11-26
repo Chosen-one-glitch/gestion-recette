@@ -3,21 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Inscription</title>
-
-    <style>
-        body { font-family: Arial; background: #f5f5f5; }
-        .container {
-            width: 350px; margin: 60px auto; padding: 20px;
-            background: white; border-radius: 8px;
-            box-shadow: 0 0 10px #ccc;
-        }
-        input { width: 100%; padding: 10px; margin: 10px 0; }
-        button { width: 100%; padding: 10px; background: #28a745; color: white; border: none; }
-    </style>
+    <link rel="stylesheet" href="Assets/navbar.css">
+    <link rel="stylesheet" href="Assets/auth.css">
 </head>
 <body>
 
-<div class="container">
+<?php include 'Views/navbar.php'; ?>
+<div class="auth-wrapper">
+<div class="auth-container">
     <h2>Créer un compte</h2>
 
     <form action="index.php?page=register_submit" method="POST">
@@ -30,6 +23,6 @@
 
     <p><a href="index.php">Retour à l’accueil</a></p>
 </div>
-
+</div>
 </body>
 </html>

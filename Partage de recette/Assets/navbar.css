@@ -8,6 +8,13 @@
     padding: 12px 30px;
     background: #1c120e;
     border-bottom: 2px solid #f9a25f;
+
+    width: 100%;        /* prend toute la largeur */
+    position: fixed;    /* reste en haut de la page */
+    top: 0;
+    left: 0;
+    z-index: 1000;      /* au-dessus du contenu */
+    box-sizing: border-box;
 }
 
 /* Logo + Nom de l'appli */

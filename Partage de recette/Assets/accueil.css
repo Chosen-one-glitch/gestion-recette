@@ -5,8 +5,9 @@ body {
     background: url('IMG/Background.png') no-repeat center center fixed;
     background-size: cover;
     color: #333;
-    padding: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    padding-top: 70px; /* <- espace pour la navbar fixe */
 }
 
 /* Container des cartes */
