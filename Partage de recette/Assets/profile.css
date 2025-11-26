@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: url("../images/bg.jpg") center/cover fixed #1c120e;
+    color: #f5e1d3;
+}
+
+/* CONTAINER GLOBAL */
+.profile-container {
+    max-width: 600px;
+    margin: 120px auto;
+    padding: 30px;
+    background: rgba(28, 18, 14, 0.88);
+    border-radius: 15px;
+    border: 1px solid #f9a25f;
+    backdrop-filter: blur(4px);
+    text-align: center;
+}
+
+/* TITRE */
+.profile-container h1 {
+    color: #f9a25f;
+    margin-bottom: 25px;
+}
+
+/* BOX PROFIL */
+.profile-box {
+    background: rgba(42, 26, 20, 0.8);
+    border: 1px solid #f9a25f55;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.profile-box p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+/* BOUTONS */
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s;
+    margin: 10px 5px;
+}
+
+.btn-primary {
+    background: #f9a25f;
+    color: #1c120e;
+}
+
+.btn-primary:hover {
+    background: #ffbc85;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid #f9a25f;
+    color: #f9a25f;
+}
+
+.btn-secondary:hover {
+    background: #f9a25f;
+    color: #1c120e;
+}

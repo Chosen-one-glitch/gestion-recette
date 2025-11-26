@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: url("../images/bg.jpg") center/cover fixed #1c120e;
+    color: #f5e1d3;
+}
+
+/* PAGE WRAPPER */
+.add-container {
+    max-width: 900px;
+    margin: 120px auto 40px;
+    padding: 25px;
+    background: rgba(28, 18, 14, 0.88);
+    border: 1px solid #f9a25f;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+}
+
+.add-container h1 {
+    text-align: center;
+    color: #f9a25f;
+    margin-bottom: 25px;
+}
+
+/* FORM */
+.add-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section h3 {
+    color: #f9a25f;
+}
+
+/* INPUTS */
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #f9a25f55;
+    background: #2a1a14;
+    color: #f5e1d3;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #f9a25f;
+}
+
+/* INGREDIENTS / STEPS */
+.ingredient, .step {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.ingredient input, .step input {
+    flex: 1;
+}
+
+/* BUTTONS */
+.btn-primary {
+    background: #f9a25f;
+    color: #1c120e;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    background: #ffbc85;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid #f9a25f;
+    color: #f9a25f;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #f9a25f;
+    color: #1c120e;
+}

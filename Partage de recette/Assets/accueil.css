@@ -7,7 +7,7 @@ body {
     color: #333;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-    padding-top: 70px; /* <- espace pour la navbar fixe */
+    padding-top: 90px; /* <- espace pour la navbar fixe */
 }
 
 /* Container des cartes */
@@ -73,7 +73,7 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 30px;
-    color: #ff6f61;
+    color: rgb(255, 17, 0);
 }
 
 /* Responsive */

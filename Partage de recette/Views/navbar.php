@@ -1,8 +1,8 @@
 <nav class="navbar">
     <div class="nav-left">
         <div class="logo-container">
-            <img src="Assets/TON_LOGO.png" alt="logo" class="logo" />
-            <span class="app-name">MyRecipeShare</span>
+            <img src="Assets/IMG/Logo.png" alt="logo" class="logo" />
+            <span class="app-name">CookingZone</span>
         </div>
     </div>
 
@@ -17,7 +17,7 @@
             <a href="index.php?page=profile" class="btn">Profil</a>
             <a href="logout.php" class="btn">Déconnexion</a>
         <?php else: ?>
-            <a href="index.php?page=profile" class="btn">Accueil</a>
+            <a href="index.php?page=accueil" class="btn">Accueil</a>
             <a href="index.php?page=register" class="btn">Sign in</a>
             <a href="index.php?page=login" class="btn btn-outline">Log in</a>
         <?php endif; ?>

@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: url("../images/bg.jpg") center/cover fixed #1c120e;
+    color: #f5e1d3;
+}
+
+.detail-container {
+    max-width: 900px;
+    margin: 120px auto 40px;
+    padding: 25px;
+    background: rgba(28, 18, 14, 0.85);
+    border: 1px solid #f9a25f;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+}
+
+/* Back button */
+.back-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #f9a25f;
+    color: #1c120e;
+    padding: 8px 14px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+.back-btn:hover {
+    background: #ffbc85;
+}
+
+/* Title */
+.title {
+    font-size: 2.2rem;
+    margin: 0 0 10px;
+    color: #f9a25f;
+}
+
+.meta p {
+    margin: 4px 0;
+    font-size: 0.95rem;
+    color: #d7b49e;
+}
+
+/* Recipe image */
+.recipe-img {
+    width: 100%;
+    border-radius: 12px;
+    margin: 20px 0;
+    border: 2px solid #f9a25f;
+}
+
+/* Boxes (ingredients, steps, comments) */
+.box {
+    background: #2a1a14;
+    padding: 18px;
+    border-radius: 10px;
+    border: 1px solid #f9a25f;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 25px;
+    color: #f9a25f;
+}
+
+/* Forms */
+.form-block {
+    background: #2a1a14;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #f9a25f;
+    margin-bottom: 25px;
+}
+
+select,
+textarea {
+    width: 100%;
+    margin: 8px 0 15px;
+    padding: 10px;
+    border: 2px solid #f9a25f;
+    border-radius: 8px;
+    background: #1c120e;
+    color: #fff;
+}
+
+/* Buttons */
+.fav-btn,
+.submit-btn {
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    background: #f9a25f;
+    color: #1c120e;
+    transition: 0.2s;
+}
+
+.fav-btn:hover,
+.submit-btn:hover {
+    background: #ffbc85;
+}

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h1>Toutes les Recettes</h1>
+    <h1><strong>Bienvenue sur CookingZone, régalez-vous avec nos recettes</strong></h1>
     <div class="container">
         <?php foreach ($recettes as $r): ?>
             <a href="index.php?page=recette&id=<?= $r['id'] ?>" class="card" style="text-decoration:none;color:inherit;">
