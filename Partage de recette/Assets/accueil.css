@@ -1,144 +1,84 @@
-/* ------------------------------
-   Reset et base
------------------------------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* accueil.css */
 
+/* Background de la page */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9f9;
+    background: url('IMG/Background.png') no-repeat center center fixed;
+    background-size: cover;
     color: #333;
     padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ------------------------------
-   Header / Liens
------------------------------- */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-header h1 {
-    font-size: 28px;
-    color: #2c3e50;
-}
-
-header nav a {
-    text-decoration: none;
-    color: #fff;
-    background-color: #e67e22;
-    padding: 8px 16px;
-    margin-left: 10px;
-    border-radius: 5px;
-    transition: 0.3s;
-    font-weight: bold;
-}
-
-header nav a:hover {
-    background-color: #d35400;
-}
-
-/* ------------------------------
-   Container des cartes
------------------------------- */
+/* Container des cartes */
 .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 25px;
+    justify-content: center;
 }
 
-/* ------------------------------
-   Carte recette
------------------------------- */
+/* Carte de recette */
 .card {
-    background-color: #fff;
+    background: rgba(255, 255, 255, 0.9);
+    width: 280px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 .card img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
 }
 
-/* ------------------------------
-   Corps de la carte
------------------------------- */
 .card-body {
     padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
     font-size: 20px;
     font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    color: #ff6f61;
 }
 
 .meta {
     font-size: 14px;
-    color: #555;
-    margin-bottom: 12px;
-    line-height: 1.5;
-}
-
-.meta span {
-    font-weight: bold;
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.4;
 }
 
 .desc {
     font-size: 14px;
     color: #444;
-    line-height: 1.5;
+    margin-top: auto;
+    line-height: 1.4;
 }
 
-/* ------------------------------
-   Boutons pour favoris / actions
------------------------------- */
-.button {
-    display: inline-block;
-    text-decoration: none;
-    background-color: #3498db;
-    color: #fff;
-    padding: 6px 12px;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: 0.3s;
-    margin-top: 10px;
+/* Titre principal */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ff6f61;
 }
 
-.button:hover {
-    background-color: #2980b9;
-}
-
-/* ------------------------------
-   Responsive
------------------------------- */
+/* Responsive */
 @media (max-width: 768px) {
-    body {
-        padding: 15px;
-    }
-
-    header {
+    .container {
         flex-direction: column;
-        align-items: flex-start;
-    }
-
-    header nav a {
-        margin: 5px 0 0 0;
+        align-items: center;
     }
 }

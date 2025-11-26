@@ -1,26 +1,12 @@
+<?php include 'Views/navbar.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Liste des Recettes</title>
 
+    <link rel="stylesheet" href="Assets/navbar.css">
     <link rel="stylesheet" href="Assets/accueil.css">
-
-
-    <!-- <style>
-        body { font-family: Arial, sans-serif; background: #fafafa; padding: 20px; }
-        .container { display: flex; flex-wrap: wrap; gap: 20px; }
-        .card {
-            width: 300px; background: white; border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        .card img { width: 100%; height: 180px; object-fit: cover; }
-        .card-body { padding: 15px; }
-        .title { font-size: 18px; font-weight: bold; margin-bottom: 5px; }
-        .meta { font-size: 14px; color: #555; margin-bottom: 10px; }
-        .desc { font-size: 14px; line-height: 1.4; }
-    </style> -->
 </head>
 
 <body>
@@ -41,10 +27,8 @@
         <?php foreach ($recettes as $r): ?>
             <a href="index.php?page=recette&id=<?= $r['id'] ?>" class="card" style="text-decoration:none;color:inherit;">
                 <img src="<?= htmlspecialchars($r['image_url']) ?>" alt="Image recette">
-
                 <div class="card-body">
                     <div class="title"><?= htmlspecialchars($r['title']) ?></div>
-
                     <div class="meta">
                         Catégorie : <?= htmlspecialchars($r['category_name']) ?><br>
                         Auteur : <?= htmlspecialchars($r['author']) ?><br>
@@ -52,14 +36,12 @@
                         🔥 Cuisson : <?= $r['cook_time'] ?> min<br>
                         🍽 Portions : <?= $r['portions'] ?> personnes
                     </div>
-
                     <div class="desc">
                         <?= nl2br(htmlspecialchars(substr($r['description'], 0, 120))) ?>...
                     </div>
                 </div>
             </a>
         <?php endforeach; ?>
-
     </div>
 </body>
 </html>
