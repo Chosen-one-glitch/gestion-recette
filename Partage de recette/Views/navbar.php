@@ -11,7 +11,17 @@
     </div>
 
     <div class="nav-right">
-        <a href="#" class="btn">Sign in</a>
-        <a href="#" class="btn btn-outline">Log in</a>
+        <?php if (!empty($_SESSION['user'])): ?>
+            <a href="index.php?page=dashboard" class="btn">Tableau de bord</a>
+            <a href="index.php?page=addRecipe" class="btn">Ajouter une recette</a>
+            <a href="index.php?page=profile" class="btn">Profil</a>
+            <a href="logout.php" class="btn">Déconnexion</a>
+        <?php else: ?>
+            <a href="index.php?page=profile" class="btn">Accueil</a>
+            <a href="index.php?page=register" class="btn">Sign in</a>
+            <a href="index.php?page=login" class="btn btn-outline">Log in</a>
+        <?php endif; ?>
+
+        
     </div>
 </nav>

@@ -10,18 +10,6 @@
 </head>
 
 <body>
-<div class="topbar">
-        <?php if (!empty($_SESSION['user'])): ?>
-            👤 Bonjour **<?= htmlspecialchars($_SESSION['user']['username']) ?>**
-            (<?= htmlspecialchars($_SESSION['user']['email']) ?>)  
-            — <a href="logout.php">Déconnexion</a>
-            — <a href="index.php?page=addRecipe" class="btn">Ajouter une recette</a>
-        <?php else: ?>
-            <a href="index.php?page=register">Inscription</a>
-            <a href="index.php?page=login">Connexion</a>
-        <?php endif; ?>
-    </div>
-
     <h1>Toutes les Recettes</h1>
     <div class="container">
         <?php foreach ($recettes as $r): ?>

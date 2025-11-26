@@ -129,4 +129,21 @@ class Recette {
         $stmt->execute([$user_id]);
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
+
+    public static function getByUser($user_id) {
+        $db = Database::connect();
+        $stmt = $db->prepare("SELECT * FROM recipes WHERE user_id = ? ORDER BY created_at DESC");
+        $stmt->execute([$user_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function deleteRecipe($id, $user_id) {
+        $db = Database::connect();
+
+        // sécurité : on supprime SEULEMENT si la recette appartient à l’utilisateur
+        $stmt = $db->prepare("DELETE FROM recipes WHERE id = ? AND user_id = ?");
+        return $stmt->execute([$id, $user_id]);
+    }
+
+
 }

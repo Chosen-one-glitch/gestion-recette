@@ -6,6 +6,7 @@ require_once __DIR__ . '/Controllers/RecetteController.php';
 require_once __DIR__ . '/Controllers/RegisterController.php';
 require_once "Controllers/LoginController.php";
 require_once __DIR__ . '/Controllers/AddRecipeController.php';
+require_once __DIR__ . '/Controllers/ProfileController.php';
 
 
 $page = $_GET['page'] ?? 'home';
@@ -73,6 +74,34 @@ switch ($page) {
         header("Location: index.php?page=recipe&id=".$_POST['recipe_id']);
         exit;
         break;
+
+    case 'profile':
+    require_once __DIR__ . '/Controllers/ProfileController.php';
+    (new ProfileController())->index();
+    break;
+
+    case 'changePassword':
+        require_once __DIR__ . '/Controllers/ProfileController.php';
+        (new ProfileController())->changePassword();
+        break;
+
+    case 'changePasswordSubmit':
+        require_once __DIR__ . '/Controllers/ProfileController.php';
+        (new ProfileController())->changePasswordSubmit();
+        break;
+
+
+    case 'dashboard':
+        require_once "Controllers/DashboardController.php";
+        (new DashboardController())->index();
+        break;
+
+    case 'deleteRecipe':
+        require_once "Controllers/RecetteController.php";
+        (new RecetteControllers())->delete();
+        break;
+
+
 
     
 }
